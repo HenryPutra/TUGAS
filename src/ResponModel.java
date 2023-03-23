@@ -2,10 +2,12 @@ public class ResponModel {
 
     private String Hrg;
     private String Brg;
+    private int Stk;
 
     public ResponModel(){
         this.Brg = Brg;
         this.Hrg = Hrg;
+
     }
 
     public String getHrg(){
@@ -19,4 +21,10 @@ public class ResponModel {
     }
     public void setBrg(String Brg) {
         this.Brg = Brg;}
+
+
+    public int getStk() {return Stk;}
+    public void setStk(int Stk){
+        this.Stk = Stk;
     }
+}

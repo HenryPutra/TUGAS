@@ -11,7 +11,7 @@ public class Connect {
         URL myAddress = koneksisaya.buildURL
                 ("https://farmasi.mimoapps.xyz/mimoqss2auyqD1EAlkgZCOhiffSsFl6QqAEIGtM");
         String response = koneksisaya.getResponseFromHttpUrl(myAddress);
-
+    
         assert response != null;
         JSONArray responseJSON = new JSONArray(response);
         ArrayList<ResponModel> responseModel = new ArrayList<>();
@@ -20,7 +20,7 @@ public class Connect {
             JSONObject myJSONObject = responseJSON.getJSONObject(i);
             resModel.setBrg(myJSONObject.getString("i_name"));
             resModel.setHrg(String.valueOf(Integer.parseInt(myJSONObject.getString("i_sell"))));
-
+            resModel.setStk(Integer.parseInt(myJSONObject.getString("id")));
             responseModel.add(resModel);
 
         }
@@ -30,14 +30,18 @@ public class Connect {
         System.out.println("-------------------------------------------");
 
         for (int i = 0; i < responseModel.size(); i++) {
-            if (responseModel.get(i).getBrg().startsWith("S") && Integer.parseInt(responseModel.get(i).getHrg()) < 7000) {
-                System.out.println(responseModel.get(i).getBrg());
-                System.out.println(responseModel.get(i).getHrg());
+            if (responseModel.get(i).getBrg().startsWith("S") && Integer.parseInt(responseModel.get(i).getHrg()) < 7000){
+                System.out.println("Nama  Barang = " + responseModel.get(i).getBrg());
+                System.out.println("Harga Barang = " + responseModel.get(i).getHrg());
+                System.out.println("Stok Barang  = " + responseModel.get(i).getStk());
             }
+
         }
 
     }
 }
+
+
 
 
 
