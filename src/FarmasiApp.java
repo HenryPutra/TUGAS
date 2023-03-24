@@ -16,18 +16,15 @@ public class FarmasiApp extends JFrame {
     }
 
     private void initComponents() {
-        // Membuat label dan tombol
         JLabel label = new JLabel("Klik tombol untuk mencari data");
         submitButton = new JButton("Submit");
         resultArea = new JTextArea(10, 30);
         resultArea.setEditable(false);
 
-        // Menambahkan action listener untuk tombol submit
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // Mendapatkan data dari URL
                     TM1 koneksisaya = new TM1();
                     URL myAddress = koneksisaya.buildURL
                             ("https://farmasi.mimoapps.xyz/mimoqss2auyqD1EAlkgZCOhiffSsFl6QqAEIGtM");
@@ -46,7 +43,6 @@ public class FarmasiApp extends JFrame {
 
                     }
 
-                    // Menampilkan hasil
                     StringBuilder result = new StringBuilder();
                     result.append("\n           Respon adalah \n");
                     result.append("Nama barang dan obat yang berawalan huruf S  \n");
@@ -68,14 +64,12 @@ public class FarmasiApp extends JFrame {
             }
         });
 
-        // Menambahkan komponen ke frame
         JPanel panel = new JPanel();
         panel.add(label);
         panel.add(submitButton);
         panel.add(resultArea);
         getContentPane().add(panel);
 
-        // Mengatur properti frame
         setTitle("ConnectGUI");
         pack();
         setLocationRelativeTo(null);
